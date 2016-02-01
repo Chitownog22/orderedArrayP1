@@ -5,16 +5,17 @@
  */
 package orderedarrayp1;
 
+import java.util.Arrays;
 
 
-
-
+// orderedArray.java
+// demonstrates ordered array class
+// to run this program: C>java OrderedApp
+////////////////////////////////////////////////////////////////
 class OrdArray
    {
    private long[] a;                 // ref to array a
    private int nElems;               // number of data items
-   
-
    //-----------------------------------------------------------
    public OrdArray(int max)          // constructor
       {
@@ -58,9 +59,7 @@ class OrdArray
          a[k] = a[k-1];
       a[j] = value;                  // insert it
       nElems++;                      // increment size
-
-
-   }  // end insert()
+      }  // end insert()
    //-----------------------------------------------------------
    public boolean delete(long value)
       {
@@ -83,15 +82,27 @@ class OrdArray
       System.out.println("");
       }
    //-----------------------------------------------------------
-  
-   public void merge(){
-     
-    System.out.println("poop");
-      
-       
+   
+   
+   public long[] pass(){
+                  long[] arrayVal;
+                 arrayVal = new long[100];
+                 
+                 
+                return  arrayVal = a;
+
+       /*for (int j=0; j<nElems; j++){
+           
+           arrayVal[j] = (int) a[j];
+           System.out.println("test"+ arrayVal[j]);
+       }*/
    }
    
-    
+   
+   
+   
+   
+   
    
    
    
@@ -100,17 +111,10 @@ class OrdArray
 
 
 
-
-
-
-
 public class OrderedArrayP1 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-                {
+    public static void main(String[] args)
+      {
       int maxSize = 100;             // array size
       OrdArray arr;                  // reference to array
       arr = new OrdArray(maxSize);   // create the array
@@ -126,19 +130,13 @@ public class OrderedArrayP1 {
       arr.insert(66);
       arr.insert(33);
       
-      // second ordered array 
-      int maxSize2 = 100;
+      
+      
+      
       OrdArray arr2;
-      arr2 = new OrdArray(maxSize);
-      
-      
-      
-      arr2.insert(22);
-      arr2.insert(48);
-      arr2.insert(12);
-      arr2.insert(99);
-      arr2.insert(75);
-      
+      arr2 = new OrdArray (maxSize);
+        arr2.insert(22);
+        arr2.insert(50);
       
       
 
@@ -156,14 +154,68 @@ public class OrderedArrayP1 {
 
       arr.display();                 // display items again
       
-  
-   arr.merge();
+      
+      long[] arr1Holder ;
+         arr1Holder = arr.pass();
+         
+         
+      long[] arr2Holder ;
+         arr2Holder = arr2.pass();
+         
+         System.out.println(arr );
+         
+        
+        
+        merge(arr1Holder, arr2Holder);
+      
+      
+    
+      
+      
       
       }  // end main()
 
-   
- 
+    private static void merge(long[] arr1Holder, long[] arr2Holder) {
 
+        long[] firstArr = arr1Holder;   // new arays to hold on passed values 
+        long[] secondArr = arr2Holder;
+        
+            
+       //new third array to combine
+        long[] mergedArr = new long [firstArr.length + secondArr.length];
+        
+        
+        
+        //loop third array and add values from first
+        for ( int x=0; x < mergedArr.length-100; x++){
+            mergedArr[x] = firstArr[x];
+              }
+        
+        
+        
+        // merge the arrays 
+       System.arraycopy( firstArr, 0, mergedArr, 0, firstArr.length);
+       System.arraycopy( secondArr, 0, mergedArr, firstArr.length, secondArr.length);
+
+        
+       
+        //print for testing 
+        
+        System.out.println(mergedArr.length); //length of array
+        
+       
+        
+
+         System.out.println( Arrays.toString(firstArr));  //print first arr 
+                  System.out.println( Arrays.toString(secondArr)); //print second arr 
+                  
+                                   System.out.println( Arrays.toString(mergedArr));  //print both arr 
+
+
+
+
+
+    }
    
 
     
