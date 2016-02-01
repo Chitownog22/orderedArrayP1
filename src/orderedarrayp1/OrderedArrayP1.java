@@ -9,14 +9,12 @@ package orderedarrayp1;
 
 
 
-// orderedArray.java
-// demonstrates ordered array class
-// to run this program: C>java OrderedApp
-////////////////////////////////////////////////////////////////
 class OrdArray
    {
    private long[] a;                 // ref to array a
    private int nElems;               // number of data items
+   
+
    //-----------------------------------------------------------
    public OrdArray(int max)          // constructor
       {
@@ -60,7 +58,9 @@ class OrdArray
          a[k] = a[k-1];
       a[j] = value;                  // insert it
       nElems++;                      // increment size
-      }  // end insert()
+
+
+   }  // end insert()
    //-----------------------------------------------------------
    public boolean delete(long value)
       {
@@ -83,16 +83,15 @@ class OrdArray
       System.out.println("");
       }
    //-----------------------------------------------------------
-   
-   // add 2 classes: merge() and common();
-   
-   public void merge()
-   {
+  
+   public void merge(){
+     
+    System.out.println("poop");
+      
        
    }
    
-   
-   
+    
    
    
    
@@ -126,6 +125,22 @@ public class OrderedArrayP1 {
       arr.insert(00);
       arr.insert(66);
       arr.insert(33);
+      
+      // second ordered array 
+      int maxSize2 = 100;
+      OrdArray arr2;
+      arr2 = new OrdArray(maxSize);
+      
+      
+      
+      arr2.insert(22);
+      arr2.insert(48);
+      arr2.insert(12);
+      arr2.insert(99);
+      arr2.insert(75);
+      
+      
+      
 
       int searchKey = 55;            // search for item
       if( arr.find(searchKey) != arr.size() )
@@ -140,10 +155,19 @@ public class OrderedArrayP1 {
       arr.delete(99);
 
       arr.display();                 // display items again
+      
+  
+   arr.merge();
+      
       }  // end main()
+
    
+ 
+
+   
+
     
-    
+   
     
     
 } // end class OrderedApp nothing entered yet
