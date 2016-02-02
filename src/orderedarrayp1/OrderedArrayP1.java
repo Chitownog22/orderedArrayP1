@@ -105,7 +105,7 @@ public class OrderedArrayP1 {
 
     public static void main(String[] args)
       {
-      int maxSize = 100;             // array size
+      int maxSize = 11;             // array size
       OrdArray arr;                  // reference to array
       arr = new OrdArray(maxSize);   // create the array
 
@@ -126,9 +126,14 @@ public class OrderedArrayP1 {
       
       OrdArray arr2;                    //reference to array 
       arr2 = new OrdArray (maxSize);    //create new instance of the class
-        arr2.insert(22);                // insert 3 items
-        arr2.insert(50);
-        arr2.insert(1);
+      
+        arr2.insert(22);  
+        arr2.insert(11);
+        arr2.insert(55);
+        arr2.insert(33);
+        arr2.insert(44);
+
+       
       
       
 
@@ -138,15 +143,28 @@ public class OrderedArrayP1 {
       else
          System.out.println("Can't find " + searchKey);
 
+      System.out.print ("Print out first arr ");
       arr.display();                 // display items
+      
+        System.out.print ("Print out seccond arr ");
+      arr2.display();                 // display items
+      
+              System.out.print ("\n" + "\n");
+
+      
 
       arr.delete(00);                // delete 3 items
       arr.delete(55);
       arr.delete(99);
 
+      System.out.print(" Print array One after deletion is complete: ");
       arr.display();                 // display items again
       
+      System.out.print(" \n Print array two after deletion is complete: ");
+      arr2.display();                 // display items again
       
+      
+                                //passing array's  value
       long[] arr1Holder ;
          arr1Holder = arr.pass();
          
@@ -158,6 +176,7 @@ public class OrderedArrayP1 {
         
         
         merge(arr1Holder, arr2Holder);
+        common(arr1Holder, arr2Holder);
       
       
     
@@ -202,19 +221,15 @@ public class OrderedArrayP1 {
           
       }
        
-    /*  
-    //Print sorted
-      for (int i=0; i < mergedArr.length; i++){
-          
-          System.out.print(mergedArr[i] + "\t");
-      }
+ 
+         System.out.print("\n \n merged array before duplicates Removed: " + "\n");
+
+                                   System.out.println( Arrays.toString(mergedArr));  //print both arr 
       
-       System.out.println("printed sorted");
-       
-      */
+      
        
     // Remove Duplicates 
-       System.out.println("dupes removed!");
+       System.out.println("\n \n dupes removed!");
        //after removing dupes   
        
        int b = 0; 
@@ -233,24 +248,76 @@ public class OrderedArrayP1 {
        
        
        
-       
+       /*
         //print for testing 
         
         System.out.println("\n array size " + mergedArr.length); //length of array
         
+       */
+        
+
+
+ System.out.println( "\n \n ");   
+
+
+
+
+
+    }
+
+    private static void common(long[] arr1Holder, long[] arr2Holder) {
        
         
-/*
-         System.out.println( Arrays.toString(firstArr));  //print first arr 
-                  System.out.println( Arrays.toString(secondArr)); //print second arr 
-                  
-*/
-                                   System.out.println( Arrays.toString(mergedArr));  //print both arr 
+        
+          long[] firstArr = arr1Holder;   // new arays to hold on passed values 
+        long[] secondArr = arr2Holder; // 2nd array passed 
+         
+       //new third array to merge the top 2 
+        long[] mergedArr = new long [firstArr.length + secondArr.length];
+        
+        
+        
+      
+    // merged the arrays 
+       System.arraycopy( firstArr, 0, mergedArr, 0, firstArr.length);
+       System.arraycopy( secondArr, 0, mergedArr, firstArr.length, secondArr.length);
 
-
-
-
-
+       
+       
+       
+         //sort items
+        for  ( int i=0; i < mergedArr.length; i++ ){
+            for ( int j=i; j< mergedArr.length; j++){
+                
+                if (mergedArr[i] > mergedArr[j]){
+                    int temp = (int) mergedArr[i];
+                    mergedArr[i] = mergedArr[j];
+                    mergedArr[j] = temp;
+                }
+            } 
+         }
+       
+       
+       
+       
+       
+      // show common numbers 
+      int g =0;    // counter 
+      
+      long[] commonArr = new long [g];  // new array to hold common values
+     
+      System.out.print("These are the Common Values: " + "\n");
+      
+        for(int i=0;i<firstArr.length;i++){     // loop whie i is less than our array
+            for(int j=0;j<secondArr.length;j++){
+                if(firstArr[i]==secondArr[j] && firstArr[i] != 0){   //check if values are the same 
+                    System.out.print(firstArr[i] + " ");            //print values 
+                    g++;                                            //counter add 
+                }
+            }
+        }
+      
+        
     }
    
 
