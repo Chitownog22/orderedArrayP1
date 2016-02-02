@@ -162,7 +162,6 @@ public class OrderedArrayP1 {
       long[] arr2Holder ;
          arr2Holder = arr2.pass();
          
-         System.out.println(arr );
          
         
         
@@ -176,6 +175,9 @@ public class OrderedArrayP1 {
       }  // end main()
 
     private static void merge(long[] arr1Holder, long[] arr2Holder) {
+        
+        boolean [] set = new boolean [1001]; 
+        int totalItems = 0;
 
         long[] firstArr = arr1Holder;   // new arays to hold on passed values 
         long[] secondArr = arr2Holder;
@@ -186,11 +188,7 @@ public class OrderedArrayP1 {
         
         
         
-        //loop third array and add values from first
-        for ( int x=0; x < mergedArr.length-100; x++){
-            mergedArr[x] = firstArr[x];
-              }
-        
+      
         
         
         // merge the arrays 
@@ -198,6 +196,67 @@ public class OrderedArrayP1 {
        System.arraycopy( secondArr, 0, mergedArr, firstArr.length, secondArr.length);
 
         
+       
+       /* attempt to remove dupes 
+       for (int i=0; i< mergedArr.length; i++){
+           
+           if (counter == mergedArr[i] && !found){
+                found =true;
+           }
+           else if (counter != mergedArr[i]){
+              System.out.print(" "+ counter);
+              counter = (int) mergedArr[i];
+              found = false;
+           }
+           
+       }
+       
+       System.out.print(" "+ counter);
+*/
+       
+       
+      //sort items
+      for  ( int i=0; i <mergedArr.length; i++ ){
+            for ( int j=i; j<mergedArr.length; j++){
+                
+                if (mergedArr[i]>mergedArr[j]){
+                    int temp = (int) mergedArr[i];
+                    mergedArr[i] = mergedArr[j];
+                    mergedArr[j] = temp;
+                }
+            }
+          
+      }
+       
+      //print sorted
+      
+      for (int i=0; i < mergedArr.length; i++){
+          
+          System.out.print(mergedArr[i] + "\t");
+      }
+      
+       System.out.println("printed sorted");
+       
+       
+       System.out.println("dupes removed!");
+       //after removing dupes   
+       
+       int b = 0; 
+       mergedArr[b] = mergedArr[0];
+       
+       for ( int i=0; i< mergedArr.length; i++){
+           if (mergedArr[b]!=mergedArr[i]){
+               b++;
+               mergedArr[b]=mergedArr[i];
+           }
+       }
+       for (int i=0;i<=b;i++){
+           System.out.print(mergedArr[i]+ "\t" );
+       }
+       
+       
+       
+       
        
         //print for testing 
         
