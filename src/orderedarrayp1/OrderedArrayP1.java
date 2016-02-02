@@ -83,28 +83,18 @@ class OrdArray
       }
    //-----------------------------------------------------------
    
-   
+   // class object to pass array values  
    public long[] pass(){
-                  long[] arrayVal;
-                 arrayVal = new long[100];
+                  long[] arrayVal; //this objects array 
+                 arrayVal = new long[100]; // this object's array max length 
                  
                  
-                return  arrayVal = a;
+                return  arrayVal = a; //returns the value of the array 
 
-       /*for (int j=0; j<nElems; j++){
-           
-           arrayVal[j] = (int) a[j];
-           System.out.println("test"+ arrayVal[j]);
-       }*/
+    
    }
-   
-   
-   
-   
-   
-   
-   
-   
+     //-----------------------------------------------------------
+ 
    
    }  // end class OrdArray
 ////////////////////////////////////////////////////////////////
@@ -133,10 +123,12 @@ public class OrderedArrayP1 {
       
       
       
-      OrdArray arr2;
-      arr2 = new OrdArray (maxSize);
-        arr2.insert(22);
+      
+      OrdArray arr2;                    //reference to array 
+      arr2 = new OrdArray (maxSize);    //create new instance of the class
+        arr2.insert(22);                // insert 3 items
         arr2.insert(50);
+        arr2.insert(1);
       
       
 
@@ -174,52 +166,34 @@ public class OrderedArrayP1 {
       
       }  // end main()
 
+    
+    //merge method - merges 2 arrays 
     private static void merge(long[] arr1Holder, long[] arr2Holder) {
         
-        boolean [] set = new boolean [1001]; 
-        int totalItems = 0;
-
-        long[] firstArr = arr1Holder;   // new arays to hold on passed values 
-        long[] secondArr = arr2Holder;
+       
         
-            
-       //new third array to combine
+        long[] firstArr = arr1Holder;   // new arays to hold on passed values 
+        long[] secondArr = arr2Holder; // 2nd array passed 
+         
+       //new third array to merge the top 2 
         long[] mergedArr = new long [firstArr.length + secondArr.length];
         
         
         
       
-        
-        
-        // merge the arrays 
+    // merged the arrays 
        System.arraycopy( firstArr, 0, mergedArr, 0, firstArr.length);
        System.arraycopy( secondArr, 0, mergedArr, firstArr.length, secondArr.length);
 
         
        
-       /* attempt to remove dupes 
-       for (int i=0; i< mergedArr.length; i++){
-           
-           if (counter == mergedArr[i] && !found){
-                found =true;
-           }
-           else if (counter != mergedArr[i]){
-              System.out.print(" "+ counter);
-              counter = (int) mergedArr[i];
-              found = false;
-           }
-           
-       }
-       
-       System.out.print(" "+ counter);
-*/
-       
-       
-      //sort items
-      for  ( int i=0; i <mergedArr.length; i++ ){
-            for ( int j=i; j<mergedArr.length; j++){
+    
+                                                     /* sort and remove duplicates */ 
+    //sort items
+      for  ( int i=0; i < mergedArr.length; i++ ){
+            for ( int j=i; j< mergedArr.length; j++){
                 
-                if (mergedArr[i]>mergedArr[j]){
+                if (mergedArr[i] > mergedArr[j]){
                     int temp = (int) mergedArr[i];
                     mergedArr[i] = mergedArr[j];
                     mergedArr[j] = temp;
@@ -228,8 +202,8 @@ public class OrderedArrayP1 {
           
       }
        
-      //print sorted
-      
+    /*  
+    //Print sorted
       for (int i=0; i < mergedArr.length; i++){
           
           System.out.print(mergedArr[i] + "\t");
@@ -237,7 +211,9 @@ public class OrderedArrayP1 {
       
        System.out.println("printed sorted");
        
+      */
        
+    // Remove Duplicates 
        System.out.println("dupes removed!");
        //after removing dupes   
        
@@ -250,8 +226,8 @@ public class OrderedArrayP1 {
                mergedArr[b]=mergedArr[i];
            }
        }
-       for (int i=0;i<=b;i++){
-           System.out.print(mergedArr[i]+ "\t" );
+       for (int i=0;i<=b;i++){                          //print
+           System.out.print(mergedArr[i]+ ", " );
        }
        
        
@@ -260,14 +236,15 @@ public class OrderedArrayP1 {
        
         //print for testing 
         
-        System.out.println(mergedArr.length); //length of array
+        System.out.println("\n array size " + mergedArr.length); //length of array
         
        
         
-
+/*
          System.out.println( Arrays.toString(firstArr));  //print first arr 
                   System.out.println( Arrays.toString(secondArr)); //print second arr 
                   
+*/
                                    System.out.println( Arrays.toString(mergedArr));  //print both arr 
 
 
