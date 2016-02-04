@@ -1,9 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Program Name: My Ordered Arrays as Objects: An array modifcation tool 
+ *Programmer: Giovanni Nunez
+ *Assignment Number: Project #1
+ *Purpose: Creating, mergin, sorting, and odifying ordered arrays 
  */
-package orderedarrayp1;
+package Project1;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -102,43 +103,33 @@ class OrdArray
 
 
 
-public class OrderedArrayP1 {
+public class Project1 {
 
     public static void main(String[] args)
       {
-      int maxSize = 11;             // array size
+      int maxSize = 7;             // array size
       OrdArray arr;                  // reference to array
       arr = new OrdArray(maxSize);   // create the array
       
       
-  
-    
-     
 
-      arr.insert(   callRAndom() );                // insert 10 items
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(  callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
-      arr.insert(   callRAndom() );
+     for ( int x =0; x < maxSize; x++){
+        arr.insert(   callRAndom() );     
+     }
+
+        
       
       
-      
-      
-      
+       int maxSize2 = 20; 
       OrdArray arr2;                    //reference to array 
-      arr2 = new OrdArray (maxSize);    //create new instance of the class
+      arr2 = new OrdArray (maxSize2);   //create new instance of the class
       
-        arr2.insert(   callRAndom() );  
-        arr2.insert(   callRAndom() );
-        arr2.insert(  callRAndom() );
-        arr2.insert(   callRAndom() );
-        arr2.insert(   callRAndom() );
-
+      
+      for ( int y = 0; y < maxSize2; y++){
+       arr2.insert( callRAndom() );      
+     }
+         
+    
        
       
       
@@ -195,7 +186,7 @@ public class OrderedArrayP1 {
     //merge method - merges 2 arrays 
     private static void merge(long[] arr1Holder, long[] arr2Holder) {
         
-       
+      
         
         long[] firstArr = arr1Holder;   // new arays to hold on passed values 
         long[] secondArr = arr2Holder; // 2nd array passed 
@@ -207,9 +198,14 @@ public class OrderedArrayP1 {
         
       
     // merged the arrays 
+    
+    
+   
        System.arraycopy( firstArr, 0, mergedArr, 0, firstArr.length);
        System.arraycopy( secondArr, 0, mergedArr, firstArr.length, secondArr.length);
-
+    
+    
+ 
         
        
     
@@ -265,15 +261,13 @@ public class OrderedArrayP1 {
 
  System.out.println( "\n \n ");   
 
-
-
+      
 
 
     }
 
     private static void common(long[] arr1Holder, long[] arr2Holder) {
        
-        
         
           long[] firstArr = arr1Holder;   // new arays to hold on passed values 
         long[] secondArr = arr2Holder; // 2nd array passed 
@@ -323,11 +317,14 @@ public class OrderedArrayP1 {
             }
         }
       
-        
+
     }
+         
+         
+         
 
     private static long callRAndom() {
-        
+      
         int max = 100;
         int min = 1;
         
@@ -336,6 +333,8 @@ public class OrderedArrayP1 {
       int randomNum = rand.nextInt((max-min) + 1) + min;
       
       return (long) randomNum;
+      
+
     }
    
 
