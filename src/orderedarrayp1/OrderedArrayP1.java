@@ -6,6 +6,7 @@
 package orderedarrayp1;
 
 import java.util.Arrays;
+import java.util.Random;
 
 
 // orderedArray.java
@@ -108,17 +109,22 @@ public class OrderedArrayP1 {
       int maxSize = 11;             // array size
       OrdArray arr;                  // reference to array
       arr = new OrdArray(maxSize);   // create the array
+      
+      
+  
+    
+     
 
-      arr.insert(77);                // insert 10 items
-      arr.insert(99);
-      arr.insert(44);
-      arr.insert(55);
-      arr.insert(22);
-      arr.insert(88);
-      arr.insert(11);
-      arr.insert(00);
-      arr.insert(66);
-      arr.insert(33);
+      arr.insert(   callRAndom() );                // insert 10 items
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(  callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
+      arr.insert(   callRAndom() );
       
       
       
@@ -127,11 +133,11 @@ public class OrderedArrayP1 {
       OrdArray arr2;                    //reference to array 
       arr2 = new OrdArray (maxSize);    //create new instance of the class
       
-        arr2.insert(22);  
-        arr2.insert(11);
-        arr2.insert(55);
-        arr2.insert(33);
-        arr2.insert(44);
+        arr2.insert(   callRAndom() );  
+        arr2.insert(   callRAndom() );
+        arr2.insert(  callRAndom() );
+        arr2.insert(   callRAndom() );
+        arr2.insert(   callRAndom() );
 
        
       
@@ -318,6 +324,18 @@ public class OrderedArrayP1 {
         }
       
         
+    }
+
+    private static long callRAndom() {
+        
+        int max = 100;
+        int min = 1;
+        
+        Random rand = new Random();
+        
+      int randomNum = rand.nextInt((max-min) + 1) + min;
+      
+      return (long) randomNum;
     }
    
 
