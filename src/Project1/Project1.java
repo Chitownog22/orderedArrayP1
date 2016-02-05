@@ -107,9 +107,9 @@ public class Project1 {
 
     public static void main(String[] args)
       {
-      int maxSize = 7;             // array size
-      OrdArray arr;                  // reference to array
-      arr = new OrdArray(maxSize);   // create the array
+      int maxSize = 7;                // first array max size
+      OrdArray arr;                  // reference to array class
+      arr = new OrdArray(maxSize);   // create the array instance of the object 
       
       
 
@@ -120,9 +120,9 @@ public class Project1 {
         
       
       
-       int maxSize2 = 20; 
-      OrdArray arr2;                    //reference to array 
-      arr2 = new OrdArray (maxSize2);   //create new instance of the class
+       int maxSize2 = 20;                  // second array max size
+      OrdArray arr2;                      // reference to array class
+      arr2 = new OrdArray (maxSize2);    // create the array instance of the object 
       
       
       for ( int y = 0; y < maxSize2; y++){
